@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cursor.purchase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+      <span class="grain"></span>
+      <span class="grid"></span>
+    </div>
+
+    <header class="topbar">
+      <button
+        class="menu-btn"
+        id="menu-btn"
+        type="button"
+        aria-haspopup="dialog"
+        aria-expanded="false"
+        aria-controls="menu-panel"
+      >
+        <span class="menu-btn-bars" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="menu-btn-label">Menu</span>
+      </button>
+    </header>
+
+    <div
+      class="menu-overlay"
+      id="menu-overlay"
+      hidden
+    >
+      <div
+        class="menu-panel"
+        id="menu-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="menu-title"
+      >
+        <div class="menu-head">
+          <p class="menu-kicker" id="menu-title">Navigate</p>
+          <button class="menu-close" id="menu-close" type="button">
+            Close
+          </button>
+        </div>
+
+        <nav class="menu-tabs" id="menu-tabs" aria-label="Site sections">
+          <a class="menu-tab" href="https://discord.gg/A8eKWqWaMJ">
+            <span class="menu-tab-index">01</span>
+            <span>
+              <strong>Support</strong>
+              <em>Opens the same Discord as Purchase</em>
+            </span>
+          </a>
+          <button class="menu-tab" type="button" data-view="about">
+            <span class="menu-tab-index">02</span>
+            <span>
+              <strong>Info about us</strong>
+              <em>Founder, support, reverse engineering</em>
+            </span>
+          </button>
+          <button class="menu-tab" type="button" data-view="terms">
+            <span class="menu-tab-index">03</span>
+            <span>
+              <strong>Terms of service</strong>
+              <em>What we will and will not cover</em>
+            </span>
+          </button>
+        </nav>
+
+        <article class="menu-view" id="view-about" hidden>
+          <button class="menu-back" type="button" data-back>← Back</button>
+          <h2>Info about us</h2>
+          <p class="menu-lead">
+            cursor.purchase is founded by Disi, with Ali on support tickets
+            and Shani on reverse engineering.
+          </p>
+          <ul class="team">
+            <li>
+              <span class="team-role">Founder · 15 years old</span>
+              <strong>Disi</strong>
+              <p>
+                A 15-year-old cybersecurity professional who grew up in
+                terminal windows. Started with capture-the-flag contests at
+                12, then built a full home lab: isolated VMs, packet capture,
+                malware samples in a sandbox, and lockpicking of their own
+                test apps. Known in small Discord circles for clean writeups,
+                fast triage, and tools they actually use themselves. Ships
+                only what they would run on their own box. Hardcore, trusted
+                by the people who have bought from them before — not because
+                of a company name, because the work lands.
+              </p>
+            </li>
+            <li>
+              <span class="team-role">Support ticket manager · 17 years old</span>
+              <strong>Ali</strong>
+              <p>
+                Seventeen, and already the person who answers when a buy
+                goes sideways. Ali runs the ticket queue on Discord: delivery
+                checks, “did my tools land,” refunds that match the terms,
+                and calm replies when someone is impatient. Fast, organized,
+                and blunt when a request is out of scope. If you open a
+                support ticket, you are talking to Ali.
+              </p>
+            </li>
+            <li>
+              <span class="team-role">Reverse engineer · 34 years old</span>
+              <strong>Shani</strong>
+              <p>
+                A 34-year-old professional reverse engineer. Fourteen years
+                unpacking binaries, tracing malware families, and pulling
+                apart samples other people only screenshot. Built the sandbox
+                habit the hard way: never trust a black box, always record
+                what the file actually does. Quiet, exact, and the reason
+                the analysis tools in this bundle behave like a lab, not a
+                toy.
+              </p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-view" id="view-terms" hidden>
+          <button class="menu-back" type="button" data-back>← Back</button>
+          <h2>Terms of service</h2>
+          <div class="terms">
+            <p>
+              By using this website or buying from us, you agree to these
+              basic terms.
+            </p>
+            <p>
+              <strong>What we sell.</strong> We sell access to the listed
+              tools as a bundle. Details on the page are a plain-language
+              overview, not a legal specification.
+            </p>
+            <p>
+              <strong>How you buy.</strong> Purchases are completed through
+              the Discord link on this site. Follow the instructions given
+              there to finish payment and delivery.
+            </p>
+            <p>
+              <strong>Your use.</strong> You are responsible for how you use
+              the tools. Use them only on systems you own or have permission
+              to test. Do not use them to break the law.
+            </p>
+            <p>
+              <strong>No extra promises.</strong> We do not promise any
+              particular result, profit, or security outcome. Tools can fail,
+              get blocked, or need updates.
+            </p>
+            <p class="terms-limit">
+              We will only be responsible when you purchase the tools if you
+              do not get them. Anything other than that, we indeed will not
+              take responsibility for anything else.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <main class="stage">
+      <div class="frame">
+        <p class="kicker">A focused mark</p>
+
+        <h1 class="title" aria-label="cursor.purchase">
+          <span class="title-glow" aria-hidden="true">cursor.purchase</span>
+          <span class="title-text">
+            <span class="word" data-text="cursor.purchase">cursor.purchase</span>
+          </span>
+          <span class="scan" aria-hidden="true"></span>
+        </h1>
+
+        <p class="description">
+          One bundle with everything a security team needs — plain language,
+          no jargon. Scroll. One tool at a time.
+        </p>
+
+        <div class="scene-slot" id="scene-slot">
+          <article class="block" data-scene="0">
+            <span class="block-index">01</span>
+            <span class="block-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M12 3l7 3v6c0 5-3 7.5-7 9-4-1.5-7-4-7-9V6l7-3z" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+            <div class="block-copy">
+              <h2>VPN &amp; traffic hiding</h2>
+              <p>
+                Hides where your internet connection is coming from, so no one
+                watching the network can see what you're doing.
+              </p>
+            </div>
+          </article>
+
+          <article class="block" data-scene="1">
+            <span class="block-index">02</span>
+            <span class="block-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="5" y="11" width="14" height="9" rx="2"></rect>
+                <path d="M8 11V7a4 4 0 118 0v4"></path>
+              </svg>
+            </span>
+            <div class="block-copy">
+              <h2>Encrypted messaging</h2>
+              <p>
+                Lets your team chat and share files so the contents stay
+                unreadable to anyone except the people talking.
+              </p>
+            </div>
+          </article>
+
+          <article class="block" data-scene="2">
+            <span class="block-index">03</span>
+            <span class="block-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M9 3h6v5l4 8a3 3 0 01-3 5H8a3 3 0 01-3-5l4-8V3z" stroke-linejoin="round"></path>
+                <path d="M9 3h6"></path>
+              </svg>
+            </span>
+            <div class="block-copy">
+              <h2>Malware analysis sandbox</h2>
+              <p>
+                A safe, closed-off space to open suspicious files and see what
+                they do, without putting your real computer at risk.
+              </p>
+            </div>
+          </article>
+
+          <article class="block" data-scene="3">
+            <span class="block-index">04</span>
+            <span class="block-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="12" r="8"></circle>
+                <circle cx="12" cy="12" r="2.4"></circle>
+                <path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path>
+              </svg>
+            </span>
+            <div class="block-copy">
+              <h2>Penetration-testing suite</h2>
+              <p>
+                Lets a security team try to break into their own systems on
+                purpose, the way an attacker would, to find weak spots before
+                anyone else does.
+              </p>
+            </div>
+          </article>
+
+          <article class="block" data-scene="4">
+            <span class="block-index">05</span>
+            <span class="block-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="10.5" cy="10.5" r="6.5"></circle>
+                <path d="M20 20l-4.6-4.6" stroke-linecap="round"></path>
+              </svg>
+            </span>
+            <div class="block-copy">
+              <h2>Vulnerability scanner</h2>
+              <p>
+                Automatically checks websites and apps for known security
+                holes, then reports what it finds so they can be fixed.
+              </p>
+            </div>
+          </article>
+
+          <article class="block" data-scene="5">
+            <span class="block-index">06</span>
+            <span class="block-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M3 12c2-4 5-6 9-6s7 2 9 6c-2 4-5 6-9 6s-7-2-9-6z" stroke-linejoin="round"></path>
+                <circle cx="12" cy="12" r="2.4"></circle>
+              </svg>
+            </span>
+            <div class="block-copy">
+              <h2>24/7 monitoring</h2>
+              <p>
+                A team and set of tools that keep watch on your systems around
+                the clock and alert you the moment something looks wrong.
+              </p>
+            </div>
+          </article>
+
+          <div class="block block-empty" data-scene="6" aria-hidden="true"></div>
+
+          <a
+            class="block purchase"
+            data-scene="7"
+            href="https://discord.gg/A8eKWqWaMJ"
+          >
+            <span class="block-index">Buy</span>
+            <span class="purchase-copy">
+              <span class="purchase-kicker">All six, bundled · 25% less</span>
+              <span class="purchase-title">Purchase</span>
+              <span class="purchase-hint">Continue in Discord ↗</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <ol class="rail" id="rail" aria-label="Scroll progress">
+        <li><button type="button" data-jump="0" aria-label="VPN"></button></li>
+        <li><button type="button" data-jump="1" aria-label="Messaging"></button></li>
+        <li><button type="button" data-jump="2" aria-label="Sandbox"></button></li>
+        <li><button type="button" data-jump="3" aria-label="Pen test"></button></li>
+        <li><button type="button" data-jump="4" aria-label="Scanner"></button></li>
+        <li><button type="button" data-jump="5" aria-label="Monitoring"></button></li>
+        <li><button type="button" data-jump="6" aria-label="Clear"></button></li>
+        <li><button type="button" data-jump="7" aria-label="Purchase"></button></li>
+      </ol>
+    </main>
+
+    <div class="scroll-track" id="scroll-track" aria-hidden="true"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
